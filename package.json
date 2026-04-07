@@ -1,0 +1,13 @@
+{
+  "name": "devboard-monorepo",
+  "private": true,
+  "scripts": {
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter='./artifacts/*' --filter='./scripts' run typecheck",
+    "dev": "pnpm -r --parallel --filter='./artifacts/*' run dev",
+    "build": "pnpm run typecheck:libs && pnpm -r --filter='./artifacts/*' run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}
